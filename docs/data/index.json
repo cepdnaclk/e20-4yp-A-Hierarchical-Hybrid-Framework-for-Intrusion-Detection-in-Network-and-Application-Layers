@@ -1,37 +1,26 @@
 {
     "team": [
         {
-            "name": "Team Member Name 1",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "Vithushan E.T.L.",
+            "email": "e20416@eng.pdn.ac.lk",
+            "eNumber": "E/20/416"
         },
         {
-            "name": "Team Member Name 2",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "T.Eniyavan",
+            "email": "e20099@eng.pdn.ac.lk",
+            "eNumber": "E/20/099"
         },
         {
-            "name": "Team Member Name 3",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "Jegatheesan S.",
+            "email": "e19174@eng.pdn.ac.lk",
+            "eNumber": "E/19/174"
         }
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk"
-        },
-        {
-            "name": "Dr. Supervisor 2",
-            "email": "email@eng.pdn.ac.lk"
+            "name": "Mr. Biswajith Dissanayake",
+            "email": "biswajithd@eng.pdn.ac.lk"
         }
     ],
-    "media": [
-        {
-            "type": "youtube",
-            "title": "",
-            "url": "#"
-        }
-    ],
-    "tags": ["Final Year Projects"]
+    "tags": ["Machine Learning", "Security", "IDS"]
 }
