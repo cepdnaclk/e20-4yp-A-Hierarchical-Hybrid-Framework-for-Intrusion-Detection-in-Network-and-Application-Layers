@@ -55,7 +55,7 @@ The CSE-CIC-IDS2018 dataset was chosen for its breadth of both network-level and
 
 | Metric | Value |
 |---|---|
-| Known Attack Detection | 100% |
+| Known Attack Detection | 97% |
 | Zero-Day Recall | 91% |
 | Avg Latency per Flow | 68ms |
 | False Positive Rate | < 4% |
