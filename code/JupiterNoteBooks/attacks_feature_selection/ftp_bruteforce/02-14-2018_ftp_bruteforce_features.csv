@@ -1,0 +1,6 @@
+feature,selected,ranking
+Dst Port,TRUE,1
+Flow Pkts/s,TRUE,1
+Bwd Pkts/s,TRUE,1
+Init Fwd Win Byts,TRUE,1
+Fwd Seg Size Min,TRUE,1

@@ -1,0 +1,65 @@
+feature,selected,ranking
+Dst Port,True,1
+Protocol,True,1
+Flow Duration,True,1
+Tot Fwd Pkts,True,1
+Tot Bwd Pkts,True,1
+TotLen Fwd Pkts,True,1
+TotLen Bwd Pkts,True,1
+Fwd Pkt Len Max,True,1
+Fwd Pkt Len Min,True,1
+Fwd Pkt Len Mean,True,1
+Fwd Pkt Len Std,True,1
+Bwd Pkt Len Max,True,1
+Bwd Pkt Len Mean,True,1
+Bwd Pkt Len Std,True,1
+Flow Byts/s,True,1
+Flow Pkts/s,True,1
+Fwd IAT Max,True,1
+Flow IAT Mean,True,1
+Flow IAT Std,True,1
+Flow IAT Max,True,1
+Flow IAT Min,True,1
+Fwd IAT Tot,True,1
+Fwd IAT Mean,True,1
+Fwd IAT Std,True,1
+Bwd IAT Std,True,1
+Fwd IAT Min,True,1
+Bwd IAT Tot,True,1
+Bwd IAT Mean,True,1
+Bwd IAT Min,True,1
+Bwd IAT Max,True,1
+Bwd Pkts/s,True,1
+Fwd Header Len,True,1
+Subflow Fwd Byts,True,1
+Pkt Size Avg,True,1
+Fwd Pkts/s,True,1
+Bwd Header Len,True,1
+Pkt Len Min,True,1
+Pkt Len Std,True,1
+Pkt Len Mean,True,1
+Pkt Len Max,True,1
+FIN Flag Cnt,True,1
+SYN Flag Cnt,True,1
+RST Flag Cnt,True,1
+Pkt Len Var,True,1
+PSH Flag Cnt,True,1
+ECE Flag Cnt,True,1
+URG Flag Cnt,True,1
+ACK Flag Cnt,True,1
+Fwd Seg Size Avg,True,1
+Subflow Fwd Pkts,True,1
+Bwd Seg Size Avg,True,1
+Down/Up Ratio,True,1
+Idle Std,True,1
+Idle Mean,True,1
+Idle Min,True,1
+Idle Max,True,1
+Active Max,True,1
+Active Min,True,1
+Fwd Seg Size Min,True,1
+Fwd Act Data Pkts,True,1
+Init Bwd Win Byts,True,1
+Init Fwd Win Byts,True,1
+Subflow Bwd Byts,True,1
+Subflow Bwd Pkts,True,1

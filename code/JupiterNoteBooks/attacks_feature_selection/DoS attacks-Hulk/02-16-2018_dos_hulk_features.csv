@@ -1,0 +1,13 @@
+feature,selected,ranking
+Dst Port,True,1
+Tot Fwd Pkts,True,1
+Fwd Pkt Len Max,True,1
+TotLen Fwd Pkts,True,1
+Fwd Pkt Len Std,True,1
+Bwd Pkt Len Std,True,1
+Fwd Pkt Len Mean,True,1
+Fwd IAT Tot,True,1
+Bwd IAT Min,True,1
+Subflow Fwd Byts,True,1
+Fwd Seg Size Avg,True,1
+Fwd Header Len,True,1

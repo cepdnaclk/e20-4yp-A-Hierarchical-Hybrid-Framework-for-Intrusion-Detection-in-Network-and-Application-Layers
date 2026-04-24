@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hierarchical Hybrid Framework for Intrusion Detection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              950: '#0a0e1a',
+              900: '#0d1224',
+              800: '#111830',
+              700: '#1a2340',
+              600: '#243050',
+              500: '#2e3d60',
+            },
+            neon: {
+              green: '#00ff88',
+              blue: '#00d4ff',
+              purple: '#a855f7',
+              red: '#ff4d6a',
+              yellow: '#fbbf24',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .glow-green { text-shadow: 0 0 20px rgba(0,255,136,0.3); }
+    .glow-blue { text-shadow: 0 0 20px rgba(0,212,255,0.3); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .card-glow:hover {
+      box-shadow: 0 0 20px rgba(0,212,255,0.1), 0 0 40px rgba(0,212,255,0.05);
+    }
+    .scan-line {
+      background: linear-gradient(180deg, transparent, rgba(0,255,136,0.03), transparent);
+      animation: scan 4s linear infinite;
+    }
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-cyber-950 text-gray-300 leading-relaxed grid-bg">
+
+  <!-- Header -->
+  <header class="relative overflow-hidden border-b border-cyan-900/30">
+    <div class="absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-transparent"></div>
+    <div class="relative max-w-6xl mx-auto px-6 py-20 text-center">
+      <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 bg-neon-green rounded-full pulse-glow"></span>
+        <span class="text-neon-green text-xs font-mono-code uppercase tracking-widest">Final Year Project / Group 13</span>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight glow-blue">
+        A Hierarchical Hybrid Framework for<br />Intrusion Detection
+      </h1>
+      <p class="mt-3 text-lg text-cyan-300/70">in Network and Application Layers</p>
+      <p class="mt-6 text-gray-500 text-sm">
+        Department of Computer Engineering &middot; University of Peradeniya
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-16 space-y-20">
+
+    <!-- Team & Supervisor -->
+    <section>
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-8">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Team
+      </h2>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 text-center card-glow transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+            <span class="text-neon-blue font-mono-code text-sm font-bold">JS</span>
+          </div>
+          <p class="font-semibold text-white text-lg">Jegatheesan S.</p>
+          <p class="text-sm text-gray-500 font-mono-code">E/19/174</p>
+          <a href="mailto:e19174@eng.pdn.ac.lk" class="text-neon-blue text-sm hover:underline">e19174@eng.pdn.ac.lk</a>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 text-center card-glow transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+            <span class="text-neon-blue font-mono-code text-sm font-bold">ET</span>
+          </div>
+          <p class="font-semibold text-white text-lg">Eniyavan T.</p>
+          <p class="text-sm text-gray-500 font-mono-code">E/20/099</p>
+          <a href="mailto:e20099@eng.pdn.ac.lk" class="text-neon-blue text-sm hover:underline">e20099@eng.pdn.ac.lk</a>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 text-center card-glow transition-all duration-300">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+            <span class="text-neon-blue font-mono-code text-sm font-bold">VE</span>
+          </div>
+          <p class="font-semibold text-white text-lg">Vithushan E.T.L.</p>
+          <p class="text-sm text-gray-500 font-mono-code">E/20/416</p>
+          <a href="mailto:e20416@eng.pdn.ac.lk" class="text-neon-blue text-sm hover:underline">e20416@eng.pdn.ac.lk</a>
+        </div>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-sm uppercase tracking-widest text-gray-500 mb-3">Supervisor</h3>
+        <div class="bg-cyber-800 border border-purple-500/20 rounded-xl p-5 inline-block">
+          <p class="font-semibold text-white">Mr. Biswajith A.K. Dissanayake</p>
+          <a href="mailto:biswajithd@eng.pdn.ac.lk" class="text-neon-purple text-sm hover:underline">biswajithd@eng.pdn.ac.lk</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section>
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Contents
+      </h2>
+      <nav class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6">
+        <ol class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <li><a href="#abstract" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">01</span> Abstract</a></li>
+          <li><a href="#problem-statement" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">02</span> Problem Statement</a></li>
+          <li><a href="#methodology" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">03</span> Methodology</a></li>
+          <li><a href="#results" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">04</span> Results and Analysis</a></li>
+          <li><a href="#conclusion" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">05</span> Conclusion</a></li>
+          <li><a href="#links" class="flex items-center gap-2 text-gray-400 hover:text-neon-blue transition-colors"><span class="font-mono-code text-neon-green text-xs">06</span> Links</a></li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- Abstract -->
+    <section id="abstract">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Abstract
+      </h2>
+      <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-8">
+        <p class="text-gray-300 leading-7">
+          The rapid evolution of cyber-attacks such as zero-day exploits and sophisticated application-layer attacks like SQL injection, XSS, command injection, and enhanced DDoS attacks exposes considerable drawbacks of traditional intrusion detection systems. In this work, we propose a Hierarchical Hybrid Framework for server-side intrusion detection that overcomes these issues with a fully parallel two-stream approach. Our approach analyses 22 network-layer features and 19 application-layer features (41 total), selected using Random Forest importance, SHAP values, mutual information, and correlation. The framework includes a three-layer cascade:
+        </p>
+        <div class="mt-6 grid md:grid-cols-3 gap-4">
+          <div class="bg-cyber-900 border border-cyan-900/30 rounded-lg p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-mono-code text-neon-green text-xs bg-neon-green/10 px-2 py-0.5 rounded">L1</span>
+              <span class="text-white font-semibold text-sm">Binary Classifier</span>
+            </div>
+            <p class="text-gray-400 text-sm">LightGBM for Network Stream (98% accuracy), XGBoost for Application Stream (84.55% accuracy)</p>
+          </div>
+          <div class="bg-cyber-900 border border-cyan-900/30 rounded-lg p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-mono-code text-neon-yellow text-xs bg-neon-yellow/10 px-2 py-0.5 rounded">L2</span>
+              <span class="text-white font-semibold text-sm">Known/Unknown</span>
+            </div>
+            <p class="text-gray-400 text-sm">Threshold-based classifier (confidence &ge; 0.7, F1 = 0.87, false-alarm rate &lt; 5%)</p>
+          </div>
+          <div class="bg-cyber-900 border border-cyan-900/30 rounded-lg p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-mono-code text-neon-purple text-xs bg-neon-purple/10 px-2 py-0.5 rounded">L3</span>
+              <span class="text-white font-semibold text-sm">Multi-Class</span>
+            </div>
+            <p class="text-gray-400 text-sm">XGBoost with 97% accuracy (Network) and 74.23% (Application)</p>
+          </div>
+        </div>
+        <p class="mt-6 text-gray-300 leading-7">
+          Evaluated on the balanced CSE-CIC-IDS2018 dataset (4,122,352 benign and 2,748,235 malicious packets), the pipeline achieved an overall accuracy of 97.8% with a macro F1-Score of 0.91. In real-time tests the model achieved 100% attack detection with a false positive rate below 4%.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Intrusion Detection</span>
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Zero-Day Detection</span>
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Hybrid ML</span>
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Parallel Processing</span>
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Anomaly Detection</span>
+          <span class="bg-cyan-500/10 text-neon-blue text-xs font-mono-code px-3 py-1 rounded-full border border-cyan-500/20">Enterprise Security</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section id="problem-statement">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-red"></span>Problem Statement
+      </h2>
+      <p class="text-gray-300 mb-6 leading-7">
+        Despite major improvements in machine-learning-based IDS, most present-day solutions handle network and application layers sequentially or in isolation. This enables advanced application-layer attacks (obfuscated SQL Injection, Cross-Site Scripting, Command Injection, and Business Logic Abuse) to go undetected because they appear perfectly normal at the network level.
+      </p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-cyber-800 border-l-2 border-neon-red rounded-r-xl p-5 card-glow transition-all duration-300">
+          <h4 class="font-semibold text-neon-red flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Sequential Processing
+          </h4>
+          <p class="text-sm text-gray-400 mt-2">Network and application layers analysed in isolation, allowing cross-layer attacks to evade detection.</p>
+        </div>
+        <div class="bg-cyber-800 border-l-2 border-neon-red rounded-r-xl p-5 card-glow transition-all duration-300">
+          <h4 class="font-semibold text-neon-red flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Poor Zero-Day Handling
+          </h4>
+          <p class="text-sm text-gray-400 mt-2">Supervised models fail against unseen threats; unsupervised ones suffer from high false positives.</p>
+        </div>
+        <div class="bg-cyber-800 border-l-2 border-neon-red rounded-r-xl p-5 card-glow transition-all duration-300">
+          <h4 class="font-semibold text-neon-red flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Lack of Cross-Layer Fusion
+          </h4>
+          <p class="text-sm text-gray-400 mt-2">No robust meta-learner to combine outputs from network and application streams.</p>
+        </div>
+        <div class="bg-cyber-800 border-l-2 border-neon-red rounded-r-xl p-5 card-glow transition-all duration-300">
+          <h4 class="font-semibold text-neon-red flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            High Computational Overhead
+          </h4>
+          <p class="text-sm text-gray-400 mt-2">Advanced hybrid architectures unsuitable for resource-constrained environments like IoT gateways.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Methodology
+      </h2>
+
+      <p class="text-gray-300 leading-7">
+        The proposed framework operates through four interconnected components using a fully parallel dual-stream architecture. Two separate streams handle network-layer and application-layer inputs simultaneously, enabling real-time cross-layer intrusion detection.
+      </p>
+
+      <!-- Architecture Diagram Placeholder -->
+      <div class="mt-8 bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-10 text-center">
+        <svg class="w-10 h-10 mx-auto text-cyan-700/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <p class="text-cyan-600 font-mono-code text-sm mt-3">architecture_diagram.png</p>
+        <p class="text-gray-600 text-xs mt-1">Hierarchical Hybrid IDS Architecture (Figure 6 from paper)</p>
+        <!-- Replace this div with: <img src="./images/architecture_diagram.png" alt="Hierarchical Hybrid IDS Architecture" class="mx-auto rounded-lg" /> -->
+      </div>
+
+      <div class="mt-10 space-y-6">
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 card-glow transition-all duration-300">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <span class="font-mono-code text-neon-green text-xs bg-neon-green/10 px-2 py-0.5 rounded">01</span>
+            Parallel Dual-Stream Input Processing
+          </h3>
+          <p class="mt-3 text-gray-400">Two separate streams process network (22 features) and application (19 features) data simultaneously, reducing latency while spotting cross-layer threats.</p>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 card-glow transition-all duration-300">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <span class="font-mono-code text-neon-green text-xs bg-neon-green/10 px-2 py-0.5 rounded">02</span>
+            Layer 1: Anomaly Detector (Binary Classifier)
+          </h3>
+          <p class="mt-3 text-gray-400">A supervised binary classifier that distinguishes benign from attack traffic. LightGBM is used for the Network Stream (98% accuracy) and XGBoost for the Application Stream (84.55% accuracy). An initial unsupervised approach (Isolation Forest, Autoencoder, One-Class SVM) was abandoned due to unacceptably poor results (accuracy as low as 3%).</p>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 card-glow transition-all duration-300">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <span class="font-mono-code text-neon-yellow text-xs bg-neon-yellow/10 px-2 py-0.5 rounded">03</span>
+            Layer 2: Known/Unknown Identifier
+          </h3>
+          <p class="mt-3 text-gray-400">A zero-overhead threshold-based decision mechanism using Layer 1's confidence scores. High confidence (&ge; 0.7) routes flows as "known attacks" to Layer 3; low confidence flags them as potential zero-day threats for immediate alert. This replaced unsupervised models that had critically low precision (0.26 to 0.27).</p>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 card-glow transition-all duration-300">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <span class="font-mono-code text-neon-purple text-xs bg-neon-purple/10 px-2 py-0.5 rounded">04</span>
+            Layer 3: Multi-Class Classifier
+          </h3>
+          <p class="mt-3 text-gray-400">XGBoost classifies known attacks into 14 distinct attack families, achieving 97% accuracy and 0.92 macro F1-score on the Network Stream. The macro F1-score ensures fair treatment of minority attack classes like Slowloris and SQL Injection.</p>
+        </div>
+        <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-6 card-glow transition-all duration-300">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <span class="font-mono-code text-neon-blue text-xs bg-neon-blue/10 px-2 py-0.5 rounded">05</span>
+            Meta-Learner Fusion
+          </h3>
+          <p class="mt-3 text-gray-400">Results from both streams are combined using a meta-learner that resolves conflicting decisions between network and application streams, producing final alerts.</p>
+        </div>
+      </div>
+
+      <!-- Feature Selection -->
+      <h3 class="mt-12 flex items-center gap-3 text-xl font-semibold text-white">
+        <span class="w-5 h-[2px] bg-neon-green"></span>Feature Selection
+      </h3>
+      <p class="mt-3 text-gray-400 leading-7">
+        41 features were selected using a rank aggregation of four methods: Correlation Coefficients, Mutual Information, Random Forest importance, and Recursive Feature Elimination (SVM). An initial 20-feature set resulted in poor performance (F1 = 0.08), prompting expansion to 41 features that improved performance by 10 to 15%.
+      </p>
+      <div class="mt-5 grid md:grid-cols-2 gap-5">
+        <div class="bg-cyber-800 border border-cyan-500/20 rounded-xl p-6">
+          <h4 class="font-semibold text-neon-blue flex items-center gap-2 text-sm uppercase tracking-wider">
+            <span class="w-2 h-2 bg-neon-blue rounded-full"></span>
+            Network Layer (22 features)
+          </h4>
+          <p class="text-sm text-gray-500 mt-3 font-mono-code leading-6">Dst Port, Protocol, Flow Duration, Flow IAT Mean/Max/Min, Fwd IAT Max/Min/Tot, ECE Flag Cnt, Flow Pkts/s, Fwd/Bwd Pkts/s, Tot Fwd Pkts, Subflow Fwd Pkts, Fwd/Bwd Header Len, Init Fwd/Bwd Win Byts, PSH/RST/ACK Flag Cnt</p>
+        </div>
+        <div class="bg-cyber-800 border border-purple-500/20 rounded-xl p-6">
+          <h4 class="font-semibold text-neon-purple flex items-center gap-2 text-sm uppercase tracking-wider">
+            <span class="w-2 h-2 bg-neon-purple rounded-full"></span>
+            Application Layer (19 features)
+          </h4>
+          <p class="text-sm text-gray-500 mt-3 font-mono-code leading-6">Pkt Size Avg, Pkt Len Mean/Max/Min/Std/Var, Fwd Pkt Len Max/Min/Mean/Std, Bwd Pkt Len Max/Min/Mean/Std, Fwd/Bwd Seg Size Min/Avg, TotLen Fwd Pkts, Subflow Fwd Byts</p>
+        </div>
+      </div>
+
+      <!-- Feature Validation Plots Placeholder -->
+      <h3 class="mt-12 flex items-center gap-3 text-xl font-semibold text-white">
+        <span class="w-5 h-[2px] bg-neon-green"></span>Feature Validation
+      </h3>
+      <p class="mt-3 text-gray-400 leading-7">
+        Log-transformed box plots of the five most discriminative features confirmed statistically significant separation between benign traffic and every attack category.
+      </p>
+      <div class="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-xs mt-2">flow_duration_distribution.png</p>
+          <p class="text-gray-600 text-xs mt-1">Log-transformed Flow Duration</p>
+          <!-- Replace with: <img src="./images/flow_duration_distribution.png" alt="Flow Duration Distribution" class="rounded-lg" /> -->
+        </div>
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-xs mt-2">flow_pkts_distribution.png</p>
+          <p class="text-gray-600 text-xs mt-1">Log-transformed Flow Pkts/s</p>
+          <!-- Replace with: <img src="./images/flow_pkts_distribution.png" alt="Flow Pkts/s Distribution" class="rounded-lg" /> -->
+        </div>
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-xs mt-2">flow_iat_mean_distribution.png</p>
+          <p class="text-gray-600 text-xs mt-1">Log-transformed Flow IAT Mean</p>
+          <!-- Replace with: <img src="./images/flow_iat_mean_distribution.png" alt="Flow IAT Mean Distribution" class="rounded-lg" /> -->
+        </div>
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-xs mt-2">fwd_pkts_distribution.png</p>
+          <p class="text-gray-600 text-xs mt-1">Log-transformed Fwd Pkts/s</p>
+          <!-- Replace with: <img src="./images/fwd_pkts_distribution.png" alt="Fwd Pkts/s Distribution" class="rounded-lg" /> -->
+        </div>
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+          <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-xs mt-2">ack_flag_distribution.png</p>
+          <p class="text-gray-600 text-xs mt-1">Log-transformed ACK Flag Count</p>
+          <!-- Replace with: <img src="./images/ack_flag_distribution.png" alt="ACK Flag Count Distribution" class="rounded-lg" /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Results and Analysis -->
+    <section id="results">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-8">
+        <span class="w-8 h-[2px] bg-neon-green"></span>Results and Analysis
+      </h2>
+
+      <!-- Network Stream Layer 1 -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold text-white flex items-center gap-3 mb-4">
+          <span class="text-xs font-mono-code text-neon-green bg-neon-green/10 border border-neon-green/20 px-2 py-0.5 rounded">NET</span>
+          Layer 1: Anomaly Detector
+        </h3>
+        <p class="text-gray-400 mb-4">
+          After the unsupervised approach failed catastrophically, Layer 1 was re-engineered as a supervised binary classifier. Nine algorithms were evaluated; LightGBM emerged as the best performer.
+        </p>
+        <div class="overflow-x-auto rounded-xl border border-cyan-900/30">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-cyber-700 text-cyan-300 text-xs uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-3">Model</th>
+                <th class="px-4 py-3">Precision</th>
+                <th class="px-4 py-3">Recall</th>
+                <th class="px-4 py-3">F1-Score</th>
+                <th class="px-4 py-3">Accuracy</th>
+                <th class="px-4 py-3">ROC-AUC</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-cyan-900/20">
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Logistic Regression</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.81</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.87</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.89</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9228</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">Decision Tree</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.95</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9701</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Random Forest</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.98</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.95</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9870</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">AdaBoost</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.95</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9759</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">SVM</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.88</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.91</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.92</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9627</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">Gradient Boosting</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.99</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.98</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9809</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">MLP</td><td class="px-4 py-2.5 font-mono-code text-gray-400">1.00</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.98</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9852</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">XGBoost</td><td class="px-4 py-2.5 font-mono-code text-gray-400">1.00</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.98</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.9900</td></tr>
+              <tr class="bg-neon-green/5 border border-neon-green/20"><td class="px-4 py-2.5 text-neon-green font-semibold">LightGBM (Selected)</td><td class="px-4 py-2.5 font-mono-code text-neon-green">1.00</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.94</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.97</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.98</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.9905</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Layer 1 Results Image Placeholder -->
+        <div class="mt-5 grid md:grid-cols-2 gap-4">
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">network_layer1_roc_curves.png</p>
+            <p class="text-gray-600 text-xs mt-1">Network Layer 1 ROC Curves</p>
+            <!-- Replace with: <img src="./images/network_layer1_roc_curves.png" alt="Network Layer 1 ROC Curves" class="rounded-lg" /> -->
+          </div>
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">network_layer1_confusion_matrices.png</p>
+            <p class="text-gray-600 text-xs mt-1">Network Layer 1 Confusion Matrices</p>
+            <!-- Replace with: <img src="./images/network_layer1_confusion_matrices.png" alt="Network Layer 1 Confusion Matrices" class="rounded-lg" /> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Network Stream Layer 2 -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold text-white flex items-center gap-3 mb-4">
+          <span class="text-xs font-mono-code text-neon-yellow bg-neon-yellow/10 border border-neon-yellow/20 px-2 py-0.5 rounded">NET</span>
+          Layer 2: Known/Unknown Identifier
+        </h3>
+        <p class="text-gray-400 mb-4">
+          The threshold-based approach using Layer 1's confidence scores dramatically outperformed unsupervised methods.
+        </p>
+        <div class="overflow-x-auto rounded-xl border border-cyan-900/30">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-cyber-700 text-cyan-300 text-xs uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-3">Metric</th>
+                <th class="px-4 py-3">Isolation Forest</th>
+                <th class="px-4 py-3">One-Class SVM</th>
+                <th class="px-4 py-3">Threshold-Based (Final)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-cyan-900/20">
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Unknown Recall</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.73</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.78</td><td class="px-4 py-2.5 font-mono-code text-neon-green font-semibold">0.91</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">Unknown Precision</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.26</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.27</td><td class="px-4 py-2.5 font-mono-code text-neon-green font-semibold">0.84</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">F1-Score (Unknown)</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.38</td><td class="px-4 py-2.5 font-mono-code text-gray-500">0.40</td><td class="px-4 py-2.5 font-mono-code text-neon-green font-semibold">0.87</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">False Alarm Rate</td><td class="px-4 py-2.5 font-mono-code text-neon-red">Very High</td><td class="px-4 py-2.5 font-mono-code text-neon-red">Very High</td><td class="px-4 py-2.5 font-mono-code text-neon-green font-semibold">&lt; 5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Network Stream Layer 3 -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold text-white flex items-center gap-3 mb-4">
+          <span class="text-xs font-mono-code text-neon-purple bg-neon-purple/10 border border-neon-purple/20 px-2 py-0.5 rounded">NET</span>
+          Layer 3: Multi-Class Classifier
+        </h3>
+        <p class="text-gray-400 mb-4">XGBoost achieved the highest macro F1-score (0.92) across all 14 attack families.</p>
+        <div class="overflow-x-auto rounded-xl border border-cyan-900/30">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-cyber-700 text-cyan-300 text-xs uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-3">Model</th>
+                <th class="px-4 py-3">Accuracy</th>
+                <th class="px-4 py-3">Macro F1</th>
+                <th class="px-4 py-3">Weighted F1</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-cyan-900/20">
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Logistic Regression</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.70</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.94</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">Decision Tree</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.91</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Random Forest</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.91</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.97</td></tr>
+              <tr class="bg-neon-green/5 border border-neon-green/20"><td class="px-4 py-2.5 text-neon-green font-semibold">XGBoost (Selected)</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.97</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.92</td><td class="px-4 py-2.5 font-mono-code text-neon-green">0.97</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">MLP</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.78</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.96</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">LightGBM</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.28</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.19</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.22</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Layer 3 Results Image Placeholders -->
+        <div class="mt-5 grid md:grid-cols-2 gap-4">
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">network_layer3_confusion_matrices.png</p>
+            <p class="text-gray-600 text-xs mt-1">Network Layer 3 Confusion Matrices</p>
+            <!-- Replace with: <img src="./images/network_layer3_confusion_matrices.png" alt="Network Layer 3 Confusion Matrices" class="rounded-lg" /> -->
+          </div>
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">network_layer3_per_class_accuracy.png</p>
+            <p class="text-gray-600 text-xs mt-1">Network Layer 3 Per-Class Accuracy</p>
+            <!-- Replace with: <img src="./images/network_layer3_per_class_accuracy.png" alt="Network Layer 3 Per-Class Accuracy" class="rounded-lg" /> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Stream Results -->
+      <div class="mb-10">
+        <h3 class="text-xl font-semibold text-white flex items-center gap-3 mb-4">
+          <span class="text-xs font-mono-code text-neon-blue bg-neon-blue/10 border border-neon-blue/20 px-2 py-0.5 rounded">APP</span>
+          Application Stream Results
+        </h3>
+        <div class="overflow-x-auto rounded-xl border border-cyan-900/30">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-cyber-700 text-cyan-300 text-xs uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-3">Layer</th>
+                <th class="px-4 py-3">Best Model</th>
+                <th class="px-4 py-3">Accuracy</th>
+                <th class="px-4 py-3">Recall</th>
+                <th class="px-4 py-3">F1-Score</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-cyan-900/20">
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Layer 1 (Anomaly)</td><td class="px-4 py-2.5 text-gray-300">XGBoost</td><td class="px-4 py-2.5 font-mono-code text-gray-400">84.55%</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.962</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.833</td></tr>
+              <tr class="bg-cyber-900"><td class="px-4 py-2.5 text-gray-300">Layer 2 (Known/Unknown)</td><td class="px-4 py-2.5 text-gray-300">Threshold-Based</td><td class="px-4 py-2.5 font-mono-code text-gray-400">83.38%</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.588 (unknown)</td><td class="px-4 py-2.5 font-mono-code text-gray-400">0.909</td></tr>
+              <tr class="bg-cyber-800"><td class="px-4 py-2.5 text-gray-300">Layer 3 (Multi-Class)</td><td class="px-4 py-2.5 text-gray-300">XGBoost</td><td class="px-4 py-2.5 font-mono-code text-gray-400">74.23%</td><td class="px-4 py-2.5 font-mono-code text-gray-400">-</td><td class="px-4 py-2.5 font-mono-code text-gray-400">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Application Stream Image Placeholders -->
+        <div class="mt-5 grid md:grid-cols-2 gap-4">
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">app_layer1_model_comparison.png</p>
+            <p class="text-gray-600 text-xs mt-1">Application Layer 1 Model Comparison</p>
+            <!-- Replace with: <img src="./images/app_layer1_model_comparison.png" alt="Application Layer 1 Model Comparison" class="rounded-lg" /> -->
+          </div>
+          <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-6 text-center">
+            <svg class="w-8 h-8 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <p class="text-cyan-600 font-mono-code text-xs mt-2">app_layer3_accuracy_comparison.png</p>
+            <p class="text-gray-600 text-xs mt-1">Application Layer 3 Accuracy Comparison</p>
+            <!-- Replace with: <img src="./images/app_layer3_accuracy_comparison.png" alt="Application Layer 3 Accuracy Comparison" class="rounded-lg" /> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Evaluation -->
+      <div>
+        <h3 class="text-xl font-semibold text-white flex items-center gap-3 mb-4">
+          <span class="text-xs font-mono-code text-neon-red bg-neon-red/10 border border-neon-red/20 px-2 py-0.5 rounded">LIVE</span>
+          Real-Time Evaluation
+        </h3>
+        <p class="text-gray-400 mb-5">
+          A live test environment was created using attacker and victim VMs. The complete pipeline was tested with real attack traffic generated using Slowloris, LOIC/HOIC, SQLMap, Hydra, and other tools.
+        </p>
+
+        <!-- Real-Time Architecture Placeholder -->
+        <div class="bg-cyber-800 border-2 border-dashed border-cyan-900/40 rounded-xl p-10 text-center mb-6">
+          <svg class="w-10 h-10 mx-auto text-cyan-700/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-cyan-600 font-mono-code text-sm mt-3">realtime_deployment_architecture.png</p>
+          <p class="text-gray-600 text-xs mt-1">Real-Time Deployment Architecture</p>
+          <!-- Replace with: <img src="./images/realtime_deployment_architecture.png" alt="Real-Time Deployment Architecture" class="mx-auto rounded-lg" /> -->
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-cyber-800 border border-neon-green/20 rounded-xl p-6 text-center card-glow transition-all duration-300">
+            <p class="text-3xl font-bold text-neon-green font-mono-code glow-green">100%</p>
+            <p class="text-sm text-gray-500 mt-2">Known Attack Detection</p>
+          </div>
+          <div class="bg-cyber-800 border border-neon-green/20 rounded-xl p-6 text-center card-glow transition-all duration-300">
+            <p class="text-3xl font-bold text-neon-green font-mono-code glow-green">91%</p>
+            <p class="text-sm text-gray-500 mt-2">Zero-Day Recall</p>
+          </div>
+          <div class="bg-cyber-800 border border-neon-blue/20 rounded-xl p-6 text-center card-glow transition-all duration-300">
+            <p class="text-3xl font-bold text-neon-blue font-mono-code glow-blue">68ms</p>
+            <p class="text-sm text-gray-500 mt-2">Avg Latency per Flow</p>
+          </div>
+          <div class="bg-cyber-800 border border-neon-blue/20 rounded-xl p-6 text-center card-glow transition-all duration-300">
+            <p class="text-3xl font-bold text-neon-blue font-mono-code glow-blue">&lt; 4%</p>
+            <p class="text-sm text-gray-500 mt-2">False Positive Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Conclusion
+      </h2>
+      <div class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-8 space-y-4">
+        <p class="text-gray-300 leading-7">
+          This study introduces a Hierarchical Hybrid Framework combining threshold-driven approaches with supervised techniques through a layered design where streams operate both sequentially and simultaneously. The Network Stream achieves strong results: 98% accuracy at Layer 1, reliable zero-day detection at Layer 2 (F1 = 0.87), and 97% multi-class classification at Layer 3. In real-time testing, the system detected 100% of known attacks and 91% of simulated zero-day threats, with latency averaging 68ms per flow.
+        </p>
+        <p class="text-gray-300 leading-7">
+          The Application Stream shows room for improvement (~84% anomaly accuracy, ~74% multi-class accuracy) due to greater complexity of payload-related features. Future work includes addressing class imbalance in application flows, incorporating continuous learning, testing under real-world uneven loads, and exploring advanced sequence-based networks for payload content analysis.
+        </p>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section id="links">
+      <h2 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+        <span class="w-8 h-[2px] bg-neon-blue"></span>Links
+      </h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="https://github.com/cepdnaclk/e20-4yp-Hierarchical-Hybrid-Framework-for-Intrusion-Detection" target="_blank" class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-5 flex items-center gap-4 hover:border-neon-blue/40 transition-all duration-300 card-glow">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-neon-blue" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <p class="text-white font-semibold text-sm">Project Repository</p>
+            <p class="text-gray-500 text-xs">GitHub</p>
+          </div>
+        </a>
+        <a href="https://cepdnaclk.github.io/e20-4yp-Hierarchical-Hybrid-Framework-for-Intrusion-Detection" target="_blank" class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-5 flex items-center gap-4 hover:border-neon-blue/40 transition-all duration-300 card-glow">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+          </div>
+          <div>
+            <p class="text-white font-semibold text-sm">Project Page</p>
+            <p class="text-gray-500 text-xs">GitHub Pages</p>
+          </div>
+        </a>
+        <a href="http://www.ce.pdn.ac.lk/" target="_blank" class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-5 flex items-center gap-4 hover:border-neon-purple/40 transition-all duration-300 card-glow">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-neon-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <p class="text-white font-semibold text-sm">Department of Computer Engineering</p>
+            <p class="text-gray-500 text-xs">University of Peradeniya</p>
+          </div>
+        </a>
+        <a href="https://eng.pdn.ac.lk/" target="_blank" class="bg-cyber-800 border border-cyan-900/30 rounded-xl p-5 flex items-center gap-4 hover:border-neon-purple/40 transition-all duration-300 card-glow">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-neon-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/></svg>
+          </div>
+          <div>
+            <p class="text-white font-semibold text-sm">University of Peradeniya</p>
+            <p class="text-gray-500 text-xs">Faculty of Engineering</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-cyan-900/20 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">Department of Computer Engineering &middot; University of Peradeniya</p>
+      <p class="text-gray-700 text-xs font-mono-code">Group 13 &middot; Final Year Project</p>
+    </div>
+  </footer>
+
+</body>
+</html>
