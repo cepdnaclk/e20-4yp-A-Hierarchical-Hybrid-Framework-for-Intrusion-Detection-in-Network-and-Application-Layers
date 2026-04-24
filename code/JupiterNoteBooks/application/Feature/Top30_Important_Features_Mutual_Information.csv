@@ -1,0 +1,34 @@
+Top 30 Important Features – Mutual Information Analysis,,,,,
+Rank,Feature Name,"Frequency
+(# Attack Classes)",Avg MI Score,Max MI Score,Total MI Score
+1,Flow IAT Max,9,0.5159,0.6928,4.6429
+2,Fwd Header Len,8,0.6624,0.7629,5.299
+3,Flow Pkts/s,7,0.5449,0.6529,3.814
+4,Flow IAT Mean,7,0.5235,0.6928,3.6645
+5,Dst Port,7,0.5018,0.6994,3.5128
+6,TotLen Fwd Pkts,6,0.6129,0.7885,3.6777
+7,Fwd Seg Size Avg,6,0.5648,0.7834,3.3887
+8,Flow Duration,6,0.563,0.6387,3.3782
+9,Fwd Pkts/s,6,0.5265,0.6641,3.1593
+10,Fwd IAT Max,6,0.4592,0.6907,2.7554
+11,Pkt Size Avg,6,0.4086,0.6914,2.4516
+12,Init Fwd Win Byts,5,0.7161,0.7452,3.5804
+13,Init Bwd Win Byts,5,0.7064,0.7847,3.5319
+14,Fwd Seg Size Min,5,0.6982,0.7258,3.4909
+15,Subflow Fwd Byts,5,0.6091,0.7882,3.0457
+16,Fwd Pkt Len Mean,5,0.581,0.784,2.905
+17,Pkt Len Std,5,0.4122,0.452,2.061
+18,Pkt Len Mean,5,0.4097,0.451,2.0484
+19,Fwd Pkt Len Max,4,0.6493,0.7881,2.5974
+20,Subflow Fwd Pkts,4,0.6394,0.7566,2.5576
+21,Bwd Pkts/s,4,0.5838,0.6786,2.3352
+22,Bwd Pkt Len Mean,4,0.5495,0.6822,2.1979
+23,Fwd IAT Min,4,0.4933,0.6933,1.9733
+24,Fwd IAT Tot,4,0.3676,0.6071,1.4703
+25,Tot Fwd Pkts,3,0.7219,0.7562,2.1656
+26,Bwd Header Len,3,0.7011,0.7399,2.1032
+27,Bwd Seg Size Avg,3,0.5994,0.6824,1.7982
+28,Flow IAT Min,3,0.5468,0.6933,1.6404
+29,Pkt Len Max,3,0.5369,0.6728,1.6108
+30,Fwd Pkt Len Std,3,0.5284,0.7791,1.5852
+"Note: Features ranked by frequency (# of attack classes where they appear), then by average MI score. Higher frequency = more universally important.",,,,,

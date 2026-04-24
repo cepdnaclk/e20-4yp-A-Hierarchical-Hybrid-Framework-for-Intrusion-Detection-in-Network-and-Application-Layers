@@ -1,0 +1,46 @@
+Combined Feature Ranking – Mutual Information & Pearson Correlation,,,,,,,,
+,,Mutual Information,,,Pearson Correlation,,,
+Rank,Feature Name,MI Rank,MI Freq,MI Avg Score,PC Rank,PC Freq,PC Avg Score,In Both?
+1,Dst Port,5,7,0.5018,6,8,0.608,?
+2,Pkt Size Avg,11,6,0.4086,4,8,0.6435,?
+3,Fwd Seg Size Min,14,5,0.6982,3,8,0.7889,?
+4,Fwd Seg Size Avg,7,6,0.5648,11,7,0.5805,?
+5,Pkt Len Std,17,5,0.4122,1,9,0.6189,?
+6,Init Fwd Win Byts,12,5,0.7161,10,7,0.6019,?
+7,Fwd Pkt Len Max,19,4,0.6493,7,8,0.6068,?
+8,Fwd Header Len,2,8,0.6624,25,4,0.8436,?
+9,Pkt Len Mean,18,5,0.4097,9,7,0.6148,?
+10,TotLen Fwd Pkts,6,6,0.6129,22,5,0.7755,?
+11,Fwd Pkt Len Mean,16,5,0.581,12,7,0.5805,?
+12,Init Bwd Win Byts,13,5,0.7064,16,7,0.4465,?
+13,Fwd Pkt Len Std,30,3,0.5284,2,9,0.6167,?
+14,Subflow Fwd Byts,15,5,0.6091,21,5,0.7755,?
+15,Pkt Len Max,29,3,0.5369,8,7,0.68,?
+16,Bwd Seg Size Avg,27,3,0.5994,13,7,0.5312,?
+17,Bwd Pkt Len Mean,22,4,0.5495,20,6,0.4558,?
+18,Subflow Fwd Pkts,20,4,0.6394,26,4,0.8277,?
+19,Tot Fwd Pkts,25,3,0.7219,27,4,0.6727,?
+20,Flow IAT Max,1,9,0.5159,–,–,–,
+21,Flow Pkts/s,3,7,0.5449,–,–,–,
+22,Flow IAT Mean,4,7,0.5235,–,–,–,
+23,Flow Duration,8,6,0.563,–,–,–,
+24,Fwd Pkts/s,9,6,0.5265,–,–,–,
+25,Fwd IAT Max,10,6,0.4592,–,–,–,
+26,Bwd Pkts/s,21,4,0.5838,–,–,–,
+27,Fwd IAT Min,23,4,0.4933,–,–,–,
+28,Fwd IAT Tot,24,4,0.3676,–,–,–,
+29,Bwd Header Len,26,3,0.7011,–,–,–,
+30,Flow IAT Min,28,3,0.5468,–,–,–,
+31,Pkt Len Var,–,–,–,5,8,0.6336,
+32,Protocol,–,–,–,14,7,0.4964,
+33,Pkt Len Min,–,–,–,15,7,0.4647,
+34,PSH Flag Cnt,–,–,–,17,6,0.6231,
+35,Bwd Pkt Len Std,–,–,–,18,6,0.5566,
+36,Fwd Pkt Len Min,–,–,–,19,6,0.4786,
+37,RST Flag Cnt,–,–,–,23,5,0.449,
+38,ECE Flag Cnt,–,–,–,24,5,0.449,
+39,Bwd Pkt Len Max,–,–,–,28,4,0.5372,
+40,Bwd Pkt Len Min,–,–,–,29,4,0.2865,
+41,ACK Flag Cnt,–,–,–,30,3,0.6739,
+,,,,,,,,
+Legend:  ?? Green = Feature in BOTH top-30 lists   |   ?? Blue = MI only   |   ?? Yellow = Pearson only   |   ? = Common to both,,,,,,,,

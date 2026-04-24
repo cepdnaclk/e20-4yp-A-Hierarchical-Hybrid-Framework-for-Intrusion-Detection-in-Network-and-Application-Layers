@@ -1,0 +1,7 @@
+Model,Accuracy%,Precision,Recall,F1,ROC-AUC,90%+ Met
+Stacking,99.9987,1.0,1.0,1.0,0.927,Yes
+Random Forest,99.9985,1.0,1.0,1.0,0.9062,Yes
+XGBoost,99.9985,1.0,1.0,1.0,0.9062,Yes
+Extra Trees,99.9985,1.0,1.0,1.0,0.9062,Yes
+Bagging DT,99.9982,1.0,1.0,1.0,0.927,Yes
+Gradient Boost,99.9978,1.0,1.0,1.0,0.9062,Yes

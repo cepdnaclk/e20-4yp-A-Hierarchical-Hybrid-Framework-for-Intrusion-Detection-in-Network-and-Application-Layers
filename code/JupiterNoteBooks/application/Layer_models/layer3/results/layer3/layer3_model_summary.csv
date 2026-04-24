@@ -1,0 +1,7 @@
+Model,Accuracy%,F1 Weighted,F1 Macro,90%+ Met
+XGBoost,74.2341,0.7137,0.7188,No
+Gradient Boost,74.1961,0.7131,0.6188,No
+Random Forest,74.159,0.7132,0.6762,No
+Extra Trees,74.1563,0.7132,0.6742,No
+Stacking,74.1501,0.7132,0.674,No
+Bagging DT,73.9579,0.7104,0.6719,No

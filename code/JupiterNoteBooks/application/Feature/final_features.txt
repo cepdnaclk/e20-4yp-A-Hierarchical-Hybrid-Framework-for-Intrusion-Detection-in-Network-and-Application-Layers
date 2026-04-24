@@ -1,0 +1,156 @@
+Pearson Correlation – Top 25 Features
+
+    PSH Flag Cnt
+
+    Init Fwd Win Byts
+
+    ACK Flag Cnt
+
+    Init Bwd Win Byts
+
+    Pkt Len Min
+
+    Fwd Pkt Len Min
+
+    Protocol
+
+    Pkt Len Max
+
+    Pkt Len Std
+
+    Pkt Len Var
+
+    Fwd Pkt Len Max
+
+    Fwd Pkt Len Std
+
+    Pkt Size Avg
+
+    Fwd Seg Size Min
+
+    Dst Port
+
+    Fwd Seg Size Avg
+
+    Fwd Pkt Len Mean
+
+    Pkt Len Mean
+
+    Bwd Seg Size Avg
+
+    Bwd Pkt Len Max
+
+    Bwd Pkt Len Std
+
+    Bwd Pkts/s
+
+    Bwd Pkt Len Mean
+
+    Fwd Act Data Pkts
+
+    Flow Pkts/s
+
+Mutual Information – Top 25 Features
+
+    TotLen Fwd Pkts
+
+    Subflow Fwd Byts
+
+    Fwd Pkt Len Max
+
+    Init Bwd Win Byts
+
+    Fwd Pkt Len Mean
+
+    Fwd Seg Size Avg
+
+    Fwd Pkt Len Std
+
+    Fwd Header Len
+
+    Subflow Fwd Pkts
+
+    Tot Fwd Pkts
+
+    Init Fwd Win Byts
+
+    Fwd Seg Size Min
+
+    Flow IAT Max
+
+    Flow Duration
+
+    Flow Pkts/s
+
+    Fwd IAT Tot
+
+    Flow IAT Mean
+
+    Dst Port
+
+    Bwd IAT Max
+
+    Fwd IAT Mean
+
+    Idle Max
+
+    Pkt Len Mean
+
+    Pkt Len Std
+
+    Bwd Pkts/s
+
+    Fwd Pkts/s
+
+
+Final 25 Selected Features
+
+    TotLen Fwd Pkts
+
+    Tot Fwd Pkts
+
+    Subflow Fwd Byts
+
+    Subflow Fwd Pkts
+
+    Fwd Pkt Len Max
+
+    Fwd Pkt Len Mean
+
+    Fwd Pkt Len Std
+
+    Fwd Seg Size Avg
+
+    Fwd Seg Size Min
+
+    Init Fwd Win Byts
+
+    Init Bwd Win Byts
+
+    Flow Duration
+
+    Flow IAT Max
+
+    Flow IAT Mean
+
+    Fwd IAT Tot
+
+    Fwd IAT Mean
+
+    Idle Max
+
+    Flow Pkts/s
+
+    Fwd Pkts/s
+
+    Bwd Pkts/s
+
+    Dst Port
+
+    Protocol
+
+    PSH Flag Cnt
+
+    ACK Flag Cnt
+
+    Fwd Header Len

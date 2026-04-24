@@ -1,0 +1,34 @@
+Top 30 Important Features – Pearson Correlation Analysis,,,,,
+Rank,Feature Name,"Frequency
+(# Attack Classes)",Avg Corr Score,Max Corr Score,Total Corr Score
+1,Pkt Len Std,9,0.6189,0.9925,5.5703
+2,Fwd Pkt Len Std,9,0.6167,0.9918,5.55
+3,Fwd Seg Size Min,8,0.7889,0.9904,6.3116
+4,Pkt Size Avg,8,0.6435,0.9915,5.148
+5,Pkt Len Var,8,0.6336,0.9923,5.0687
+6,Dst Port,8,0.608,0.9874,4.8637
+7,Fwd Pkt Len Max,8,0.6068,0.9918,4.8543
+8,Pkt Len Max,7,0.68,0.9925,4.76
+9,Pkt Len Mean,7,0.6148,0.9838,4.3039
+10,Init Fwd Win Byts,7,0.6019,0.9996,4.213
+11,Fwd Seg Size Avg,7,0.5805,0.9874,4.0635
+12,Fwd Pkt Len Mean,7,0.5805,0.9874,4.0635
+13,Bwd Seg Size Avg,7,0.5312,0.9834,3.7183
+14,Protocol,7,0.4964,0.9929,3.4745
+15,Pkt Len Min,7,0.4647,0.9931,3.2526
+16,Init Bwd Win Byts,7,0.4465,0.9936,3.1255
+17,PSH Flag Cnt,6,0.6231,0.9997,3.7385
+18,Bwd Pkt Len Std,6,0.5566,0.9791,3.3396
+19,Fwd Pkt Len Min,6,0.4786,0.9931,2.8713
+20,Bwd Pkt Len Mean,6,0.4558,0.7845,2.7349
+21,Subflow Fwd Byts,5,0.7755,0.9863,3.8773
+22,TotLen Fwd Pkts,5,0.7755,0.9863,3.8773
+23,RST Flag Cnt,5,0.449,0.7769,2.2452
+24,ECE Flag Cnt,5,0.449,0.7769,2.2452
+25,Fwd Header Len,4,0.8436,0.9751,3.3744
+26,Subflow Fwd Pkts,4,0.8277,0.9579,3.3107
+27,Tot Fwd Pkts,4,0.6727,0.9322,2.6909
+28,Bwd Pkt Len Max,4,0.5372,0.9807,2.1486
+29,Bwd Pkt Len Min,4,0.2865,0.409,1.1458
+30,ACK Flag Cnt,3,0.6739,0.9994,2.0218
+"Note: Features ranked by frequency (# of attack classes where they appear), then by average Pearson Correlation score.",,,,,
